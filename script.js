@@ -1,19 +1,25 @@
 class Node {
     constructor(data) {
         this.data = data;
+        this.leftNode = null;
+        this.rightNode = null;
     }
 };
 
 class Tree {
-    constructor(treeValues) {
-        treeValues.forEach(index => {
-            let newNode = new Node(index);
-            this.tree.push(newNode);
+    constructor(array) {
+        const sortedArray = array.sort((a, b) => a - b);
+        const filteredArray = sortedArray.filter((element, index) => {
+            if (element === sortedArray[index + 1]) {
+                // sortedArray.splice(index, 1)
+                console.log("THESE VALUES ARE THE SAME")
+            }
         });
-    }
-
-    tree = [];
-    root;
+        
+        this.tree = filteredArray; 
+        console.log(this.tree);
+        this.root = this.buildTree(array);
+    };
 
     buildTree = (array) => {
 
@@ -23,14 +29,14 @@ class Tree {
         console.log(this.tree);
     }
 
-    prettyPrint = () => {
-
-    }
+    printRoot = () => {
+        console.log(this.root);
+    };
 };
 
 const tree = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
-
 tree.printTree();
+
 //test values for buildTree(array)
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
