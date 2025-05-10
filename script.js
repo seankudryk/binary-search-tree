@@ -9,7 +9,6 @@ class Node {
 class Tree {
     constructor(array) {
         const sortedArray = array.sort((a, b) => a - b);
-        console.log(sortedArray);
 
         const filteredArray = sortedArray.filter((element, index) => {
             if (element === sortedArray[index + 1]) {
@@ -17,6 +16,8 @@ class Tree {
             }
             return sortedArray;
         });
+
+        this.filteredArray = filteredArray;
         
         this.root = this.buildTree(array);
     };
@@ -26,7 +27,7 @@ class Tree {
     }
 
     printTree = () => {
-        console.log(this.tree);
+        console.log(this.filteredArray);
     } 
 
     printRoot = () => {
