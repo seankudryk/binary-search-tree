@@ -19,14 +19,14 @@ class Tree {
 
         this.filteredArray = filteredArray;
         
-        this.root = this.buildTree(array);
+        this.root = this.buildTree(filteredArray);
     };
 
     buildTree = (array) => {
 
     }
 
-    printTree = () => {
+    printFilteredInput = () => {
         console.log(this.filteredArray);
     } 
 
@@ -36,9 +36,7 @@ class Tree {
 };
 
 const tree = new Tree([1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324]);
-tree.printTree();
-
-//test values for buildTree(array)
+tree.printFilteredInput();
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node === null) {
