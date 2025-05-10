@@ -9,15 +9,15 @@ class Node {
 class Tree {
     constructor(array) {
         const sortedArray = array.sort((a, b) => a - b);
+        console.log(sortedArray);
+
         const filteredArray = sortedArray.filter((element, index) => {
             if (element === sortedArray[index + 1]) {
-                // sortedArray.splice(index, 1)
-                console.log("THESE VALUES ARE THE SAME")
+                sortedArray.splice(index, 1);
             }
+            return sortedArray;
         });
         
-        this.tree = filteredArray; 
-        console.log(this.tree);
         this.root = this.buildTree(array);
     };
 
@@ -27,7 +27,7 @@ class Tree {
 
     printTree = () => {
         console.log(this.tree);
-    }
+    } 
 
     printRoot = () => {
         console.log(this.root);
