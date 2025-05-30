@@ -18,6 +18,7 @@ class Tree {
         });
 
         this.filteredArray = filteredArray;
+
         this.start = 0;
         this.end = filteredArray.length - 1;
         
@@ -40,6 +41,26 @@ class Tree {
 
         return root;
     };
+
+    insertValue = (root, value) => {
+        console.log(root);
+
+        if (root === null) {
+            return new Node(value);
+        }
+
+        if (value < root.data) {
+            root.left = this.insertValue(root.left, value);
+        } else if (value > root.data) {
+            root.right = this.insertValue(root.right, value);
+        }
+
+        return root;
+    }
+
+    deleteItem = (value) => {
+        
+    }
 
     printFilteredInput = () => {
         console.log(this.filteredArray);
@@ -65,6 +86,8 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
 };
+
+tree.insertValue(tree.root, 2);
 
 prettyPrint(tree.root);
 
